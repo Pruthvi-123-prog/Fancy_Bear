@@ -49,7 +49,8 @@ const ScannerForm = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('/api/scan', {
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${apiUrl}/api/scan`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-const { runScan } = require('../../scanner');
+const { scanWebsite } = require('../../scanner-entry');
 
 // Store scan results in memory (in production, use a database)
 const scanResults = new Map();
@@ -44,7 +44,7 @@ const triggerScan = async (req, res) => {
     });
 
     // Start scan asynchronously
-    runScan(url)
+    scanWebsite(url)
       .then(result => {
         scanResults.set(scanId, {
           ...scanResults.get(scanId),

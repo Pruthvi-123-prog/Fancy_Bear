@@ -12,7 +12,8 @@ const ReportView = () => {
     const fetchReportData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`/api/report/${id}`);
+        const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+        const response = await fetch(`${apiUrl}/api/report/${id}`);
         if (!response.ok) {
           throw new Error(`Failed to fetch report: ${response.statusText}`);
         }
@@ -185,7 +186,7 @@ const ReportView = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-dark-muted text-sm font-medium">Critical</p>
-                    <p className="text-2xl font-bold text-red-400">{report.summary?.critical || 0}</p>
+                    <p className="text-2xl font-bold text-red-400">{report.result?.summary?.criticalSeverityIssues || 0}</p>
                   </div>
                   <span className="text-red-400 text-2xl">🚨</span>
                 </div>
@@ -195,7 +196,7 @@ const ReportView = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-dark-muted text-sm font-medium">High</p>
-                    <p className="text-2xl font-bold text-orange-400">{report.summary?.high || 0}</p>
+                    <p className="text-2xl font-bold text-orange-400">{report.result?.summary?.highSeverityIssues || 0}</p>
                   </div>
                   <span className="text-orange-400 text-2xl">⚠️</span>
                 </div>
@@ -205,7 +206,7 @@ const ReportView = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-dark-muted text-sm font-medium">Medium</p>
-                    <p className="text-2xl font-bold text-yellow-400">{report.summary?.medium || 0}</p>
+                    <p className="text-2xl font-bold text-yellow-400">{report.result?.summary?.mediumSeverityIssues || 0}</p>
                   </div>
                   <span className="text-yellow-400 text-2xl">🔶</span>
                 </div>
@@ -215,7 +216,7 @@ const ReportView = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-dark-muted text-sm font-medium">Low</p>
-                    <p className="text-2xl font-bold text-blue-400">{report.summary?.low || 0}</p>
+                    <p className="text-2xl font-bold text-blue-400">{report.result?.summary?.lowSeverityIssues || 0}</p>
                   </div>
                   <span className="text-blue-400 text-2xl">ℹ️</span>
                 </div>
@@ -229,23 +230,23 @@ const ReportView = () => {
                 <div className="flex-1">
                   <div className="flex justify-between text-sm text-dark-muted mb-2">
                     <span>Risk Score</span>
-                    <span>{report.riskScore || 75}/100</span>
+                    <span>{report.result?.summary?.overallScore || 0}/100</span>
                   </div>
                   <div className="w-full bg-dark-card rounded-full h-3">
                     <div 
                       className="bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 h-3 rounded-full"
-                      style={{ width: `${report.riskScore || 75}%` }}
+                      style={{ width: `${report.result?.summary?.overallScore || 0}%` }}
                     ></div>
                   </div>
                 </div>
                 <div className="text-right">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    (report.riskScore || 75) > 80 ? 'bg-red-500/10 text-red-400' :
-                    (report.riskScore || 75) > 60 ? 'bg-yellow-500/10 text-yellow-400' :
+                    (report.result?.summary?.overallScore || 0) > 80 ? 'bg-red-500/10 text-red-400' :
+                    (report.result?.summary?.overallScore || 0) > 60 ? 'bg-yellow-500/10 text-yellow-400' :
                     'bg-green-500/10 text-green-400'
                   }`}>
-                    {(report.riskScore || 75) > 80 ? 'High Risk' :
-                     (report.riskScore || 75) > 60 ? 'Medium Risk' : 'Low Risk'}
+                    {(report.result?.summary?.overallScore || 0) > 80 ? 'High Risk' :
+                     (report.result?.summary?.overallScore || 0) > 60 ? 'Medium Risk' : 'Low Risk'}
                   </span>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const axios = require('axios');
 class HttpClient {
   constructor() {
     this.client = axios.create({
-      timeout: 10000,
+      timeout: 30000,
       maxRedirects: 5,
       headers: {
         'User-Agent': 'WebAuditTool/1.0 (Security Scanner)'

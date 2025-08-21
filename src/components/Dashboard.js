@@ -19,15 +19,17 @@ const Dashboard = () => {
   const fetchScans = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/scans');
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${apiUrl}/api/reports`);
       if (!response.ok) {
         throw new Error('Failed to fetch scans');
       }
       const data = await response.json();
-      setScans(data);
+      const scanList = data.scans || [];
+      setScans(scanList);
       
       // Calculate stats
-      const stats = data.reduce((acc, scan) => {
+      const stats = scanList.reduce((acc, scan) => {
         acc.total++;
         switch (scan.status) {
           case 'completed':

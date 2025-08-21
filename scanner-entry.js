@@ -6,7 +6,7 @@
  */
 
 // Main scanner exports
-const { runScan, WebsiteScanner } = require('./scanner/index(1)');
+const { runScan, WebsiteScanner } = require('./scanner/index(1).js');
 
 // Individual scanner modules (for advanced usage)
 const SecurityScanner = require('./scanner/modules/securityScanner');
