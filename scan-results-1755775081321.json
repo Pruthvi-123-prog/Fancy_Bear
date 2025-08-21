@@ -1,0 +1,311 @@
+{
+  "url": "https://sdit.ac.in/",
+  "timestamp": "2025-08-21T11:17:59.307Z",
+  "scanDuration": 2011,
+  "security": [
+    {
+      "category": "Security Headers",
+      "severity": "high",
+      "issue": "Missing strict-transport-security header",
+      "description": "The strict-transport-security security header is not present",
+      "recommendation": "Add HSTS header: Strict-Transport-Security: max-age=31536000; includeSubDomains"
+    },
+    {
+      "category": "Security Headers",
+      "severity": "high",
+      "issue": "Missing content-security-policy header",
+      "description": "The content-security-policy security header is not present",
+      "recommendation": "Implement CSP header to prevent XSS attacks"
+    },
+    {
+      "category": "Security Headers",
+      "severity": "high",
+      "issue": "Missing x-frame-options header",
+      "description": "The x-frame-options security header is not present",
+      "recommendation": "Add X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "category": "Security Headers",
+      "severity": "medium",
+      "issue": "Missing x-content-type-options header",
+      "description": "The x-content-type-options security header is not present",
+      "recommendation": "Add X-Content-Type-Options: nosniff"
+    },
+    {
+      "category": "Security Headers",
+      "severity": "medium",
+      "issue": "Missing x-xss-protection header",
+      "description": "The x-xss-protection security header is not present",
+      "recommendation": "Add X-XSS-Protection: 1; mode=block"
+    },
+    {
+      "category": "Security Headers",
+      "severity": "medium",
+      "issue": "Missing referrer-policy header",
+      "description": "The referrer-policy security header is not present",
+      "recommendation": "Add Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "category": "Security Headers",
+      "severity": "medium",
+      "issue": "Missing permissions-policy header",
+      "description": "The permissions-policy security header is not present",
+      "recommendation": "Add Permissions-Policy to control browser features"
+    },
+    {
+      "category": "Transport Security",
+      "severity": "medium",
+      "issue": "Missing HSTS header",
+      "description": "HTTPS site without HTTP Strict Transport Security",
+      "recommendation": "Add Strict-Transport-Security header with appropriate max-age"
+    },
+    {
+      "category": "Clickjacking",
+      "severity": "medium",
+      "issue": "No clickjacking protection",
+      "description": "Page can be embedded in frames/iframes",
+      "recommendation": "Add X-Frame-Options or CSP frame-ancestors directive"
+    },
+    {
+      "category": "Information Disclosure",
+      "severity": "low",
+      "issue": "Server version disclosure",
+      "description": "Server header reveals version: openresty/1.27.1.1",
+      "recommendation": "Hide server version information"
+    }
+  ],
+  "performance": [
+    {
+      "category": "Response Time",
+      "severity": "info",
+      "issue": "Good server response time",
+      "description": "Server response time: 277ms",
+      "recommendation": "Server response time is within acceptable range"
+    },
+    {
+      "category": "Caching",
+      "severity": "low",
+      "issue": "Aggressive no-cache policy",
+      "description": "Cache-Control set to no-cache",
+      "recommendation": "Consider allowing caching for static resources"
+    },
+    {
+      "category": "Caching",
+      "severity": "low",
+      "issue": "No validation headers",
+      "description": "No ETag or Last-Modified headers",
+      "recommendation": "Add ETag or Last-Modified headers for conditional requests"
+    },
+    {
+      "category": "Page Load Performance",
+      "severity": "info",
+      "issue": "Good page load time",
+      "description": "Page load time: 1139ms",
+      "recommendation": "Page loads quickly, maintain current performance"
+    }
+  ],
+  "seo": [
+    {
+      "category": "Title Tag",
+      "severity": "high",
+      "issue": "Missing title tag",
+      "description": "No title tag found on the page",
+      "recommendation": "Add a descriptive title tag to every page"
+    },
+    {
+      "category": "Meta Description",
+      "severity": "high",
+      "issue": "Missing meta description",
+      "description": "No meta description found",
+      "recommendation": "Add a compelling meta description (150-160 characters)"
+    },
+    {
+      "category": "Headings",
+      "severity": "high",
+      "issue": "No headings found",
+      "description": "No heading tags (h1-h6) found on the page",
+      "recommendation": "Use proper heading structure for better SEO and accessibility"
+    },
+    {
+      "category": "Meta Tags",
+      "severity": "high",
+      "issue": "Missing viewport meta tag",
+      "description": "No viewport meta tag found",
+      "recommendation": "Add viewport meta tag for mobile responsiveness"
+    },
+    {
+      "category": "Meta Tags",
+      "severity": "medium",
+      "issue": "Missing charset declaration",
+      "description": "No character encoding specified",
+      "recommendation": "Add charset meta tag (preferably UTF-8)"
+    },
+    {
+      "category": "Social Media",
+      "severity": "medium",
+      "issue": "Missing Open Graph tags",
+      "description": "No Open Graph meta tags found",
+      "recommendation": "Add Open Graph tags for better social media sharing"
+    },
+    {
+      "category": "Social Media",
+      "severity": "low",
+      "issue": "Missing Twitter Card tags",
+      "description": "No Twitter Card meta tags found",
+      "recommendation": "Add Twitter Card tags for Twitter sharing optimization"
+    },
+    {
+      "category": "Internal Links",
+      "severity": "medium",
+      "issue": "No links found",
+      "description": "No internal or external links found on the page",
+      "recommendation": "Add relevant internal and external links for better SEO"
+    },
+    {
+      "category": "Crawlability",
+      "severity": "low",
+      "issue": "Unable to check robots.txt/sitemap",
+      "description": "Error checking robots.txt and sitemap: robotsResponse.data.includes is not a function",
+      "recommendation": "Manually verify robots.txt and sitemap accessibility"
+    },
+    {
+      "category": "Content",
+      "severity": "medium",
+      "issue": "Thin content",
+      "description": "Page has only 1 words",
+      "recommendation": "Add more quality content (aim for 300+ words)"
+    },
+    {
+      "category": "Structured Data",
+      "severity": "medium",
+      "issue": "No structured data found",
+      "description": "No JSON-LD, microdata, or RDFa markup detected",
+      "recommendation": "Add structured data markup for better search results"
+    },
+    {
+      "category": "Canonical URL",
+      "severity": "medium",
+      "issue": "Missing canonical URL",
+      "description": "No canonical link tag found",
+      "recommendation": "Add canonical link tag to prevent duplicate content issues"
+    }
+  ],
+  "accessibility": [
+    {
+      "category": "Headings",
+      "severity": "high",
+      "issue": "No headings found",
+      "description": "No heading structure for screen reader navigation",
+      "recommendation": "Use proper heading hierarchy (h1-h6) for page structure"
+    },
+    {
+      "category": "ARIA",
+      "severity": "medium",
+      "issue": "Missing main landmark",
+      "description": "No main content area identified",
+      "recommendation": "Use <main> element or role=\"main\" to identify main content"
+    },
+    {
+      "category": "ARIA",
+      "severity": "low",
+      "issue": "No navigation landmarks",
+      "description": "Navigation areas not identified with landmarks",
+      "recommendation": "Use <nav> elements or role=\"navigation\" for navigation areas"
+    },
+    {
+      "category": "Color and Contrast",
+      "severity": "info",
+      "issue": "Manual contrast testing recommended",
+      "description": "Automated tools cannot fully assess color contrast",
+      "recommendation": "Use tools like WebAIM Contrast Checker to verify color contrast ratios"
+    },
+    {
+      "category": "Keyboard Navigation",
+      "severity": "medium",
+      "issue": "Missing skip links",
+      "description": "No skip links found for keyboard navigation",
+      "recommendation": "Add skip links to allow keyboard users to bypass repetitive navigation"
+    },
+    {
+      "category": "Language",
+      "severity": "high",
+      "issue": "Missing language declaration",
+      "description": "No lang attribute on html element",
+      "recommendation": "Add lang attribute to html element (e.g., lang=\"en\")"
+    },
+    {
+      "category": "Page Structure",
+      "severity": "medium",
+      "issue": "Missing header landmark",
+      "description": "No header element or banner role found",
+      "recommendation": "Use <header> element or role=\"banner\" for page header"
+    },
+    {
+      "category": "Page Structure",
+      "severity": "high",
+      "issue": "Missing main content landmark",
+      "description": "No main element or main role found",
+      "recommendation": "Use <main> element or role=\"main\" to identify main content"
+    },
+    {
+      "category": "Page Structure",
+      "severity": "low",
+      "issue": "Missing footer landmark",
+      "description": "No footer element or contentinfo role found",
+      "recommendation": "Use <footer> element or role=\"contentinfo\" for page footer"
+    },
+    {
+      "category": "Focus Management",
+      "severity": "high",
+      "issue": "No focusable elements found",
+      "description": "Page appears to have no interactive elements",
+      "recommendation": "Ensure page has focusable interactive elements"
+    }
+  ],
+  "summary": {
+    "totalIssues": 36,
+    "highSeverityIssues": 11,
+    "mediumSeverityIssues": 15,
+    "lowSeverityIssues": 7,
+    "infoItems": 3,
+    "categories": {
+      "security": {
+        "total": 10,
+        "high": 3,
+        "medium": 6,
+        "low": 1,
+        "info": 0
+      },
+      "performance": {
+        "total": 4,
+        "high": 0,
+        "medium": 0,
+        "low": 2,
+        "info": 2
+      },
+      "seo": {
+        "total": 12,
+        "high": 4,
+        "medium": 6,
+        "low": 2,
+        "info": 0
+      },
+      "accessibility": {
+        "total": 10,
+        "high": 4,
+        "medium": 3,
+        "low": 2,
+        "info": 1
+      }
+    },
+    "overallScore": 0,
+    "topRecommendations": [
+      "Add HSTS header: Strict-Transport-Security: max-age=31536000; includeSubDomains",
+      "Implement CSP header to prevent XSS attacks",
+      "Add a descriptive title tag to every page",
+      "Add a compelling meta description (150-160 characters)",
+      "Use proper heading hierarchy (h1-h6) for page structure"
+    ]
+  },
+  "errors": []
+}

@@ -1,0 +1,32 @@
+{
+  "name": "website-audit-scanner",
+  "version": "1.0.0",
+  "description": "Comprehensive website security, performance, SEO, and accessibility scanner",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/scanner.test.js",
+    "example": "node examples/basic-scan.js"
+  },
+  "keywords": [
+    "security",
+    "performance", 
+    "seo",
+    "accessibility",
+    "audit",
+    "scanner",
+    "owasp",
+    "lighthouse",
+    "wcag"
+  ],
+  "author": "Website Audit Tool",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^21.0.0",
+    "lighthouse": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
